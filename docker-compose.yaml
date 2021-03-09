@@ -3,7 +3,7 @@ version: "3.7"
 services:
 
   arpspoof:
-    image: techblog/arpspoof-docker:dev
+    image: techblog/arpspoof-docker
  #   build: https://github.com/t0mer/broadlinkmanager-docker.git
     network_mode: host #Network mode must be set to host
     container_name: arpspoof
