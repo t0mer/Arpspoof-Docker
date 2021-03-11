@@ -21,10 +21,13 @@ def default():
     return "Number five is alive!"
 
 
-@app.route('/status')
+@app.route('/status',methods = ['POST', 'GET'])
 def get_status():
     try:
-        ip = str(request.args.get('ip'))
+        if request.method == 'POST':
+            ip = str(request.form['ip'])
+        else:
+            ip = str(request.args.get('ip'))
         logger.info("Getting state for ip: " + ip)
         cmd = "ps -ef | grep 'arpspoof -i " + interface_name + " -t "+ ip + " " +router_ip +"' | grep -v grep | awk '{print $2}'"
         x= subprocess.check_output([cmd],shell=True)
@@ -36,10 +39,13 @@ def get_status():
         logger.error(str(e))
         return "1"
  
-@app.route('/reconnect')
+@app.route('/reconnect',methods = ['POST', 'GET'])
 def reconnect():
     try:
-        ip = str(request.args.get('ip'))
+        if request.method == 'POST':
+            ip = str(request.form['ip'])
+        else:
+            ip = str(request.args.get('ip'))
         logger.info("reconnecting ip: " + ip)
         cmd = "pkill -f 'arpspoof -i "+ interface_name + " -t " + ip + " "+ router_ip + "'"
         subprocess.Popen([cmd],shell=True)
@@ -48,10 +54,13 @@ def reconnect():
         logger.error(str(e))
         return "0"
 
-@app.route('/disconnect')
+@app.route('/disconnect',methods = ['POST', 'GET'])
 def disconnect():
     try:
-        ip = str(request.args.get('ip'))
+        if request.method == 'POST':
+            ip = str(request.form['ip'])
+        else:
+            ip = str(request.args.get('ip'))
         logger.info("Disconnecting ip: " + ip)
         cmd = "arpspoof -i " + interface_name +" -t " + ip + " " + router_ip
         subprocess.Popen([cmd],shell=True)
