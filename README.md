@@ -1,7 +1,12 @@
 # Arpspoof-Docker
-Adding ability to block internet connection for network devices
 
-```
+Adding ability to block internet connection for local network devices
+
+### [Extensive 'How-to' blog post](https://en.techblog.co.il/2021/03/15/home-assistant-cut-internet-connection-using-arpspoof/?doing_wp_cron=1615919526.6847729682922363281250)
+
+## Docker compose
+
+```yaml
 version: "3.7"
 
 services:
