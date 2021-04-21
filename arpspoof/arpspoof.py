@@ -1,25 +1,8 @@
-import argparse
-import datetime
-import json
 import os
-import re
 import subprocess
-import time
-from json import dumps
-from os import environ, path
-from subprocess import call
 
-from flask import (
-    Flask,
-    g,
-    jsonify,
-    make_response,
-    render_template,
-    request,
-    send_from_directory,
-    url_for,
-)
-from flask_restful import Api, Resource
+from flask import Flask, request
+from flask_restful import Api
 from loguru import logger
 
 ROUTER_IP = os.getenv("ROUTER_IP")
