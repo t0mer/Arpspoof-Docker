@@ -42,6 +42,7 @@ def get_status():
         return "1"
 
 
+
 @app.route("/reconnect")
 def reconnect():
     try:
@@ -61,6 +62,7 @@ def reconnect():
     except Exception as e:
         logger.error(str(e))
         return "0"
+
 
 
 @app.route("/disconnect")
