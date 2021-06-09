@@ -5,10 +5,20 @@ LABEL maintainer="tomer.klein@gmail.com"
 ENV PYTHONIOENCODING=utf-8
 
 #install pip3
-RUN apt update
+RUN apt update -yqq && \
+    apt install -yqq && \
+    apt install python3-pip -yqq && \
+    apt install libffi-dev -yqq && \
+    apt install libssl-dev -yqq && \
+    apt install dsniff -yqq
 
-RUN apt install python3-pip libffi-dev libssl-dev dsniff --yes
-RUN pip3 install flask flask_restful loguru cryptography==2.6.1 --no-cache-dir
+RUN  pip3 install --upgrade pip --no-cache-dir && \
+     pip3 install --upgrade setuptools --no-cache-dir && \
+     pip3 install flask  --no-cache-dir && \
+     pip3 install flask_restful  --no-cache-dir && \
+     pip3 install loguru  --no-cache-dir && \
+     pip3 install cryptography==2.6.1 --no-cache-dir
+
 
 #Create working directory
 RUN mkdir /opt/arpspoof
