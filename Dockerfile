@@ -1,4 +1,4 @@
-FROM techblog/flask
+FROM techblog/flask:latest
 
 LABEL maintainer="tomer.klein@gmail.com"
 
