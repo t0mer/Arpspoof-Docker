@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM techblog/techblog/flask
 
 LABEL maintainer="tomer.klein@gmail.com"
 
@@ -11,14 +11,6 @@ RUN apt update -yqq && \
     apt install libffi-dev -yqq && \
     apt install libssl-dev -yqq && \
     apt install dsniff -yqq
-
-RUN  pip3 install --upgrade pip --no-cache-dir && \
-     pip3 install --upgrade setuptools --no-cache-dir && \
-     pip3 install flask  --no-cache-dir && \
-     pip3 install flask_restful  --no-cache-dir && \
-     pip3 install loguru  --no-cache-dir && \
-     pip3 install cryptography==2.6.1 --no-cache-dir
-
 
 #Create working directory
 RUN mkdir /opt/arpspoof
