@@ -2,7 +2,7 @@
 
 Adding ability to block internet connection for local network devices
 
-### [Extensive 'How-to' blog post](https://en.techblog.co.il/2021/03/15/home-assistant-cut-internet-connection-using-arpspoof)
+### [Extensive 'How-to' blog post](https://en.techblog.co.il/home-assistant-cut-internet-connection-using-arpspoof/)
 
 ## Docker compose
 
